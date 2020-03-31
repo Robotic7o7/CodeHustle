@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bidding Leader Board - CODE HUSTLE</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="shortcut icon" href="images/FinalLogo1.ico">
+
+<style>
+table {
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+</style>
+</head>
+<body>
+
+
+<div id="header">
+  <div class="header-wrap row">
+
+<div class="w3-container">
+  <h2><strong>LEADERBOARD - CODE HUSTLE</strong></h2>
+
+<div class="w3-responsive">
+  <table class="w3-table-all" id="myTable">
+    <tr class="w3-light-grey">
+      <th>Team Name</th>
+       <th>Team Code</th>
+      <th>Score</th>
+    </tr>
+    <tr>
+        <td>Ctrl+alt+elite</td>
+          <td>CSCH003</td>
+        <td>134</td>
+    </tr>
+    <tr>
+        <td>Compile error</td>
+          <td>CSCH004</td>
+        <td>96</td>
+    </tr>
+    <tr>
+        <td>Debug entity</td>
+          <td>CSCH006</td>
+        <td>94</td>
+    </tr>
+    <tr>
+        <td>Null</td>
+          <td>CSCH007</td>
+        <td>96</td>
+    </tr>
+    <tr>
+        <td>Aztecs</td>
+          <td>CSCH015</td>
+        <td>100</td>
+    </tr>
+    <tr>
+        <td>CodeStars</td>
+          <td>CSCH016</td>
+        <td>39</td>
+    </tr>
+    <tr>
+        <td>Team Slice</td>
+          <td>CSCH017</td>
+        <td>128</td>
+    </tr>
+    <tr>
+        <td>The Avengers</td>
+          <td>CSCH021</td>
+        <td>86</td>
+    </tr>
+       <tr>
+        <td>callback cats</td>
+          <td>CSCH025</td>
+        <td>65</td>
+    </tr>
+ 
+  </table>
+  </div>
+</div>
+
+<script>
+function sortTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[2];
+      y = rows[i + 1].getElementsByTagName("TD")[2];
+      //check if the two rows should switch place:
+      if (x.innerHTML < y.innerHTML) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+</script>
+
+<p><button onclick="sortTable()">CodeHustle</button></p>
+
+</body>
+</html>
+
